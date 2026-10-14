@@ -1,0 +1,4 @@
+# Normalise to LF in the repository. Without this the CRLF the Windows
+# checkout writes ends up in the committed files, and CI on ubuntu then
+# disagrees with the local tree about every line.
+* text=auto eol=lf

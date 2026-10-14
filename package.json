@@ -1,0 +1,71 @@
+{
+  "name": "electronics-math",
+  "version": "0.1.0",
+  "description": "Electronics calculations as pure functions: E-series preferred values, resistor colour codes, Ohm's law, voltage dividers, RC filters, LED resistors, I²C pull-ups, PCB trace width and NTC thermistors.",
+  "keywords": [
+    "electronics",
+    "resistor",
+    "resistor-color-code",
+    "e-series",
+    "preferred-values",
+    "ohms-law",
+    "voltage-divider",
+    "rc-filter",
+    "led-resistor",
+    "i2c",
+    "pcb",
+    "trace-width",
+    "ipc-2221",
+    "thermistor",
+    "ntc",
+    "steinhart-hart",
+    "embedded",
+    "hardware",
+    "eda"
+  ],
+  "license": "MIT",
+  "author": "ygwoo",
+  "homepage": "https://www.firmgod.com/tools",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leegw0800/electronics-math.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leegw0800/electronics-math/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./units": "./dist/units.js",
+    "./eseries": "./dist/eseries.js",
+    "./colorcode": "./dist/colorcode.js",
+    "./ohmslaw": "./dist/ohmslaw.js",
+    "./parallel": "./dist/parallel.js",
+    "./voltagedivider": "./dist/voltagedivider.js",
+    "./rc": "./dist/rc.js",
+    "./ledresistor": "./dist/ledresistor.js",
+    "./i2cpullup": "./dist/i2cpullup.js",
+    "./trace": "./dist/trace.js",
+    "./thermistor": "./dist/thermistor.js",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "node --test \"src/**/*.test.ts\"",
+    "build": "rm -rf dist && tsc",
+    "check": "tsc --noEmit -p tsconfig.check.json",
+    "prepublishOnly": "npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^5.7.2"
+  }
+}

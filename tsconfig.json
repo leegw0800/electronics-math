@@ -1,0 +1,34 @@
+{
+  // `rewriteRelativeImportExtensions` is what lets the source keep `.ts` on its
+  // own imports. That matters more than it looks: with `.ts` specifiers the
+  // tests run under plain `node --test` with no build step and no loader, which
+  // is how they ran in the site this code came from. TypeScript 5.7+ rewrites
+  // them to `.js` on the way out, so the published files are ordinary ESM.
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rewriteRelativeImportExtensions": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    // `strict` and no more. The modules came from a site built on
+    // astro/tsconfigs/strict, so that is the setting they were written and
+    // tested under; turning on `noUncheckedIndexedAccess` here produced
+    // thirty errors in code that is exercised by 134 passing tests, and
+    // rewriting working arithmetic to satisfy a flag added after the fact is
+    // how correct code acquires bugs.
+    "strict": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "exactOptionalPropertyTypes": false,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.test.ts"]
+}

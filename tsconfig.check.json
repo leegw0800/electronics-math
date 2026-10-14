@@ -1,0 +1,9 @@
+{
+  // The build excludes tests so they do not ship. This one type-checks them
+  // anyway — a test that no longer compiles is a test that stopped describing
+  // the code.
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "noEmit": true },
+  "include": ["src/**/*.ts"],
+  "exclude": []
+}

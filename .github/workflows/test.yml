@@ -1,0 +1,27 @@
+# The tests run straight off the TypeScript sources under Node's own type
+# stripping, so there is nothing to build before they run. The build is checked
+# separately because `dist/` is what gets published and a package that tests
+# clean but does not compile is still broken.
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # 22 is the oldest that runs the tests from source; 24 is current.
+        node: ['22', '24']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npm test
+      - run: npm run check
+      - run: npm run build
