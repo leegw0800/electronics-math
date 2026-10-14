@@ -1,5 +1,9 @@
 # electronics-math
 
+[![test](https://github.com/leegw0800/electronics-math/actions/workflows/test.yml/badge.svg)](https://github.com/leegw0800/electronics-math/actions/workflows/test.yml)
+[![npm](https://img.shields.io/npm/v/electronics-math.svg)](https://www.npmjs.com/package/electronics-math)
+[![license](https://img.shields.io/npm/l/electronics-math.svg)](./LICENSE)
+
 The arithmetic you do on the bench, as pure functions with no dependencies.
 
 E-series preferred values, resistor colour bands, Ohm's law, voltage dividers
