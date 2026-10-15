@@ -60,7 +60,7 @@
   },
   "scripts": {
     "test": "node --test \"src/**/*.test.ts\"",
-    "build": "rm -rf dist && tsc",
+    "build": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\" && tsc",
     "check": "tsc --noEmit -p tsconfig.check.json",
     "prepublishOnly": "npm test && npm run build"
   },
